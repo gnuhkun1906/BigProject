@@ -20,4 +20,10 @@ public class Music {
     @Lob
     private String url;
     private String singer;
+
+    public Music(String name, String singer, String fileName) {
+        this.name = name;
+        this.singer = singer;
+        this.url=fileName;
+    }
 }
