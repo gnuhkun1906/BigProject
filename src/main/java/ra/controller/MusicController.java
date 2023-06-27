@@ -1,5 +1,4 @@
 package ra.controller;
-
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +41,15 @@ public class MusicController {
 
         musicService.save(songC);
         return "redirect:/";
+       @PostMapping("/update")
+    public String upDate( @ModelAttribute("music")Music music){
+        musicService.save(music);
+        return "redirect:/";
+    }
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id")Long id,Model model){
+        Music music=musicService.findById(id);
+        model.addAttribute("music",music);
+        return "updateMusic";
     }
 }
